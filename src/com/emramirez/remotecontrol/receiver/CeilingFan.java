@@ -2,25 +2,51 @@ package com.emramirez.remotecontrol.receiver;
 
 public class CeilingFan {
 
-    private String name;
+    public static final int HIGH = 3;
+    public static final int MEDIUM = 2;
+    public static final int LOW = 1;
+    public static final int OFF = 0;
+    private String location;
+    private int speed;
 
-    public CeilingFan(String name) {
-        this.name = name;
+    public CeilingFan(String location) {
+        this.location = location;
+        speed = OFF;
     }
 
-    public String getName() {
-        return name;
+    public String getLocation() {
+        return location;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLocation(String name) {
+        this.location = location;
     }
 
     public void on() {
-        System.out.println(name + " ceiling fan is on");
+        System.out.println(location + " ceiling fan is on");
     }
 
     public void off() {
-        System.out.println(name + " ceiling fan is off");
+        speed = OFF;
+        System.out.println(location + " ceiling fan is off");
+    }
+
+    public void high() {
+        speed = HIGH;
+        System.out.println(location + " ceiling fan is in HIGH speed");
+    }
+
+    public void medium() {
+        speed = MEDIUM;
+        System.out.println(location + " ceiling fan is in MEDIUM speed");
+    }
+
+    public void low() {
+        speed = LOW;
+        System.out.println(location + " ceiling fan is in LOW speed");
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 }

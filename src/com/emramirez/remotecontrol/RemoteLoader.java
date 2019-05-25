@@ -1,6 +1,7 @@
 package com.emramirez.remotecontrol;
 
 import com.emramirez.remotecontrol.command.*;
+import com.emramirez.remotecontrol.invoker.RemoteControl;
 import com.emramirez.remotecontrol.receiver.CeilingFan;
 import com.emramirez.remotecontrol.receiver.GarageDoor;
 import com.emramirez.remotecontrol.receiver.Light;
@@ -22,7 +23,8 @@ public class RemoteLoader {
         LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
         LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
 
-        CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
+        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+        CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
         CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
 
         GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
@@ -33,8 +35,9 @@ public class RemoteLoader {
 
         remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
         remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
-        remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
-        remoteControl.setCommand(3, stereoOnWithCD, stereoOff);
+        remoteControl.setCommand(2, ceilingFanHigh, ceilingFanOff);
+        remoteControl.setCommand(3, ceilingFanMedium, ceilingFanOff);
+        remoteControl.setCommand(4, stereoOnWithCD, stereoOff);
 
         System.out.println(remoteControl);
 
@@ -44,7 +47,9 @@ public class RemoteLoader {
         remoteControl.offButtonWasPushed(1);
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
+        remoteControl.undoButtonWasPushed();
     }
 }
